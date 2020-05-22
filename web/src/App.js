@@ -52,6 +52,8 @@ function App() {
     })
     setGithubUsername('');
     setTechs('');
+
+    setDevs([...devs, response.data]);//copia todos os devs que ja tenho e adiciono o novo no final
   }
 
   return (
