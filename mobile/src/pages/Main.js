@@ -25,8 +25,8 @@ function Main({ navigation }){
         setCurrentRegion({
           latitude,
           longitude,
-          latitudeDelta:0.04,
-          longitudeDelta:0.04,
+          latitudeDelta:0.02,
+          longitudeDelta:0.02,
         })
       }
     }
@@ -36,14 +36,16 @@ function Main({ navigation }){
 
   async function loadDevs(){
     const { latitude, longitude } = currentRegion;
+    console.log({ latitude, longitude })
 
     const response = await api.get('/search',{
       params:{
-        latitude,
-        longitude,
-        techs:'React JS'
+       latitude,
+       longitude,
+       techs:"React JS"
       }
     });
+    
     console.log(response.data.devs);
     setDevs(response.data.devs);
   }
